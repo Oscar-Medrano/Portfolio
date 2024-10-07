@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 //Variants
 const stairAnimation = {
     initial: {
-        top: "0%",
+        right: "0%",
     },
     animate: {
-        top: "100%",
+        right: "100%",
     },
     exit: {
-        top:["100%", "0%"],
+        right:["100%", "0%"],
     },
 }
 
@@ -34,7 +34,7 @@ const Stairs= () => {
                 animate="animate"
                 exit="exit"
                 transition={{
-                    duration: 0.4,
+                    duration: 0.5,
                     ease: "easeInOut",
                     delay: reverseIndex(index) * 0.1,
                 }}

@@ -19,9 +19,9 @@ const Photo = () => {
                 opacity: 1,
                 transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
             }}
-            className="w-[298px] h-[298px] xl:w-[555px] xl:h-[555px] rounded-md overflow-hidden relative border border-accent">
+            className="w-[250px] h-[250px] xl:w-[400px] xl:h-[400px] rounded-md overflow-hidden relative border border-accent">
                 <Image 
-                src="/foto.png"
+                src="/foto.jpg"
                 priority
                 quality={100}
                 alt=""

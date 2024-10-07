@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 const services = [
     {
         num:'01',
-        title:'Front-End Developer',
-        description: 'I design and build attractive, user-friendly websites using HTML, CSS, JavaScript, and popular web frameworks like Vite, Next.js, and React.',
+        title:'Web Developer',
+        description: "As a skilled web developer, I specialize in crafting visually stunning, user-centered websites that seamlessly blend aesthetics and functionality. With a deep understanding of HTML, CSS, JavaScript, and modern frameworks like Vite, Next.js, and React, I deliver high-performance, responsive web solutions tailored to meet your unique business objectives.",
         href: '/summary',
     },
     {
