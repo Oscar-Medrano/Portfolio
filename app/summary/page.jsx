@@ -1,323 +1,211 @@
 "use client";
 
 import { 
-    FaHtml5, 
-    FaCss3, 
-    FaReact,
-    FaJsSquare, 
-    FaNodeJs 
+    FaDatabase,
+    FaVuejs
 } from 'react-icons/fa';
 import { 
-    SiNextdotjs,
-    SiMysql,
-    SiTailwindcss, 
-    SiGithub } from 'react-icons/si';
+    SiGoland,
+} from 'react-icons/si';
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-
-import { motion } from 'framer-motion';
-import { ScrollArea } from '@/components/ui/scroll-area';
-
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import { BsPhone, BsEnvelope, BsGlobe, BsPerson } from 'react-icons/bs';
+import FadeIn from "@/components/FadeIn";
 
 const about = {
     title: 'About me',
-    description: "Hi I'm Oscar, a Software Developer dedicated to crafting elegant and user-friendly web experiences. My expertise lies in Frontend development, where I specialize in building intuitive user interfaces. With a strong foundation in databases (with MySQL), I also possess proficiency in JavaScript. A native Spanish speaker but also I am fluent in English (level B2).",
+    description: [
+        "I am a developer who believes that software should be as robust under the hood as it is intuitive on the surface. My journey in tech is driven by a passion for solving architectural puzzles. I design systems where Golang's efficiency meets the reactivity of Vue.js.",
+        "With expertise in Vue, React, and Next.js, combined with a background in project management, I approach every line of code with a business mindset: focusing on scalability, clean maintenance, and delivering real value to the end user. I'm always exploring new ways to push the boundaries of fullstack performance."
+    ],
     info:[ 
         {
+            icon: <BsPerson className="text-xl text-accent" />,
             fieldName: 'Name',
             fieldValue: 'Oscar Medrano'
         },
         {
+            icon: <BsPhone className="text-xl text-accent" />,
             fieldName: 'Phone',
-            fieldValue: '(+58)412-0819925'
+            fieldValue: '+58 412-0819925'
         },
         {
-            fieldName: 'Mail',
+            icon: <BsEnvelope className="text-xl text-accent" />,
+            fieldName: 'Email',
             fieldValue: 'omedranodev@gmail.com'
         },
         {
+            icon: <BsGlobe className="text-xl text-accent" />,
             fieldName: 'Languages',
-            fieldValue: 'English and Spanish'
+            fieldValue: 'Spanish: Native | English: B2'
         },
-    ]
-}
-
-const education = {
-    title: "My education",
-    description: "I have a solid foundation in JavaScript development, having completed the comprehensive program at Platzi. This intensive curriculum equipped me with the skills to design, develop, and deploy robust web applications. Additionally, I've honed my English language proficiency to a B2 level through courses at FyrLois, enabling me to effectively communicate and collaborate with international teams.",
-    items: [
-
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Manipulación de Arrays en JavaScript",
-        Aproved: "June 19, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Backend con Node.JS: Bases de Datos con PostgreSQL",
-        Aproved: "May 22, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "FullStack Developer con JavaScript",
-        Aproved: "May 22, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Fundamentos de Bases de datos",
-        Aproved: "March 26, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Introducción al desarrollo Backend",
-        Aproved: "February 19, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Laboratorio de React.JS: E-Commerce profesional",
-        Aproved: "February 5, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de React.JS",
-        Aproved: "January 8, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de React.JS con Vite.JS y TailwindCSS",
-        Aproved: "January 26, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Fundamentos de Node.JS",
-        Aproved: "April 12, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Backend con Node.JS: API REST con Express.JS",
-        Aproved: "April 30, 2024"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de asincronismo con JavaScript",
-        Aproved: "October 20, 2023"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso Practico de Javascript",
-        Aproved: "September 12, 2023"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Frontend Developer",
-        Aproved: "July 5, 2023"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso Practico de Frontend Developer",
-        Aproved: "July 25, 2023"
-      },
-      {
-        Institution: "FyrLois",
-        Degree: "Adults 5 Level, equivalent to B2",
-        Aproved: "November, 2023"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso Profesional de Git y GitHub",
-        Aproved: "February 17, 2022"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso Definitivo de HTML y CSS",
-        Aproved: "August 4, 2022"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Algebra",
-        Aproved: "August 23, 2022"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso Básico de Python",
-        Aproved: "November 19, 2021"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Python Comprehensions: Funciones y manejo de errores",
-        Aproved: "March 15, 2023"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Programación Básica",
-        Aproved: "August 30, 2021"
-      },
-      {
-        Institution: "Platzi",
-        Degree: "Curso de Fundamentos de Matematicas",
-        Aproved: "May 28, 2021"
-      }
-
     ]
 }
 
 const skills = {
     title: "Tech skills",
-    description: "These are the technologies that I have mastered",
-    skillList: [
+    description: "Building scalable solutions with modern technologies",
+    skillCategories: [
         {
-            icon: <FaHtml5 />,
-            name:"HTML 5"
+            title: "Backend Development",
+            icon: <SiGoland className="text-4xl" />,
+            items: [
+                "Efficient APIs: Crafting concurrent, high-throughput REST APIs with Golang",
+                "Security First: Implementing secure JWT Authentication and Authorization flows",
+                "Node.js Expertise: Legacy system maintenance and API development using Express.js",
+                "Data Integrity: Leveraging Go's strict typing to ensure robust backend logic"
+            ]
         },
         {
-            icon: <FaCss3 />,
-            name:"CSS 3"
+            title: "Frontend Development",
+            icon: <FaVuejs className="text-4xl" />,
+            items: [
+                "Dual-Framework Expertise: Crafting high-performance UIs using Vue.js and React",
+                "Next.js Specialist: Building SEO-friendly, server-side rendered (SSR) applications",
+                "Modern Styling: Leveraging Tailwind CSS for rapid, component-driven UI development",
+                "State Management: Expert handling of complex application states (Pinia, Redux, Context API)"
+            ]
         },
         {
-            icon: <FaJsSquare />,
-            name:"JavaScript"
-        },
-        {
-            icon: <FaReact />,
-            name:"React"
-        },
-        {
-            icon: <SiTailwindcss />,
-            name:"Tailwind CSS"
-        },
-        {
-            icon: <FaNodeJs />,
-            name:"Node.js"
-        },
-        {
-            icon: <SiNextdotjs />,
-            name:"Next.js"
-        },
-        {
-            icon: <SiMysql />,
-            name:"MySQL"
-        },
-        {
-            icon: <SiGithub />,
-            name:"GitHub"
-        },
+            title: "Database & DevOps",
+            icon: <FaDatabase className="text-4xl" />,
+            items: [
+                "Relational Database Expert: Designing advanced PostgreSQL and MySQL schemas for data integrity",
+                "Query Optimization: Improving application performance through efficient indexing and SQL tuning",
+                "Containerization: Using Docker to create consistent development and production environments",
+                "Version Control: Professional workflow management using Git (Branching, Merging, Pull Requests)"
+            ]
+        }
     ]
 }
 
 const Summary = () => {
     return(
-        <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
-        className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"    
+        <div className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0"    
         >
-            <div className="container mx-auto">
+            <div className="container mx-auto px-2 sm:px-4">
+                <FadeIn>
                 <Tabs
                 defaultValue="about"
-                className='flex flex-col xl:flex-row gap-[60px]'
+                className='flex flex-col xl:flex-row gap-8 xl:gap-[60px]'
                 >
                     <TabsList
-                    className="flex flex-col w-full max-w-[400px] mx-auto xl:mx-0 gap-6"
+                    className="flex flex-col w-full max-w-[400px] mx-auto xl:mx-0 gap-4 sm:gap-6"
                     >
-                        <TabsTrigger value="about">About me</TabsTrigger>
-                        <TabsTrigger value="skills">Skills</TabsTrigger>
-                        <TabsTrigger value="education">Education</TabsTrigger>
+                        <TabsTrigger value="about" className="text-base sm:text-lg py-3">About me</TabsTrigger>
+                        <TabsTrigger value="skills" className="text-base sm:text-lg py-3">Skills</TabsTrigger>
                     </TabsList>
 
                     {/* Content */}
-                    <div className="min-h-[70vh] w-full mb-4">
+                    <div className="min-h-[60vh] w-full mb-4">
 
                       {/* About me */}
-                      <TabsContent value="about" className="w-full text-center xl:text-left">
-
-                        <div className='flex flex-col gap-[30px]'>
-                          <h3 className="text-4xl font-bold">{about.title}</h3>
-                          <p className="max-w-[600px] text-white/70 mx-auto xl:mx-0 mb-4">{about.description}</p>
+                      <TabsContent value="about" className="w-full mt-0 p-4 sm:p-6">
+                        <FadeIn>
+                        <div className='flex flex-col xl:flex-row gap-6 xl:gap-[60px]'>
+                            {/* Bio Text */}
+                            <div className='flex flex-col gap-4 sm:gap-6 flex-1'>
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">{about.title}</h3>
+                                <div className="max-w-[600px] text-white/80 leading-relaxed text-base sm:text-lg space-y-3">
+                                    <p>{about.description[0]}</p>
+                                    <p>{about.description[1]}</p>
+                                </div>
+                            </div>
+                            
+                            {/* Contact Info - Right Column */}
+                            <div className="xl:w-[280px] flex-shrink-0">
+                                <ul className="flex flex-col gap-4 sm:gap-6">
+                                {about.info.map((item, index) =>{
+                                    return(
+                                    <li key={index} className="flex items-center gap-3 sm:gap-4">
+                                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                                            {item.icon}
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className='text-white/50 text-xs sm:text-sm'>{item.fieldName}</span>
+                                            <span className='text-white text-sm sm:text-lg'>{item.fieldValue}</span>
+                                        </div>
+                                    </li>
+                                    )
+                                })}
+                                </ul>
+                            </div>
                         </div>
-
-                        <ul className="grid grid-cols-1 max-w-[620px] mx-auto xl:mx-0">
-                          {about.info.map((item, index) =>{
-                            return(
-                              <li key={index} className="flex items-center justify-center xl:justify-start mb-4">
-                                <span className='text-white/70 mr-4'>{item.fieldName}</span>
-                                <span className='text-xl text-accent-hover'>{item.fieldValue}</span>
-                              </li>
-                            )
-                          })}
-                        </ul>
-
+                        </FadeIn>
                       </TabsContent>
 
                       {/* Skills */}
-                      <TabsContent value="skills" className="w-full">
+                      <TabsContent value="skills" className="w-full mt-0 p-4 sm:p-6">
                         <div className="flex flex-col gap-[30px]">
+                          <FadeIn>
                           <div className="flex flex-col gap-[30px] text-center xl:text-left">
                             <h3 className="text-4xl font-bold">{skills.title}</h3>
                             <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">{skills.description}</p>
                           </div>
-                          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 xl:gap[30px]">
-                            {skills.skillList.map((skill, index) => {
-                              return (
-                                <li key={index}>
-                                  <TooltipProvider delayDuration={100}>
-                                    <Tooltip>
-                                      <TooltipTrigger className="w-full h-[150px] bg-black/50 rounded-xl flex justify-center items-center group">
-                                        <div className="text-6xl group-hover:text-accent-hover transition-all duration-300">
-                                          {skill.icon}
-                                        </div>
-                                      </TooltipTrigger>
-                                      <TooltipContent>
-                                        <span class="notranslate">{skill.name}</span>
-                                      </TooltipContent>
-                                    </Tooltip>
-                                  </TooltipProvider>
-                                </li>
-                              )
-                            })}
-                          </ul>
-                        </div>
-                      </TabsContent>
-
-                      {/* Education */}
-                      <TabsContent value="education" className="w-full">
-
-                        <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                          <h3 className="text-4xl font-bold">{education.title}</h3>
-                          <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{education.description}</p>
-                          <ScrollArea className="h-[400px]">
-                            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                              {education.items.map((item, index)=> {
-                                return(
-                                  <li
-                                  key={index}
-                                  className="bg-black/50 h-[290px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                                  >
-                                    <span className='text-accent'>{item.Aproved}</span>
-                                    <h3 className="text-xl max-w-[260px] min-h-[10px] text-center lg:text-left">
-                                      <span class="notranslate">
-                                        {item.Degree}
-                                      </span></h3>
-                                    <div className="flex items-center gap-3">
-                                      {/* Dot */}
-                                      <span className ="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                      <p className="text-white/90">
-                                        <span class="notranslate">
-                                          {item.Institution}
-                                        </span></p>
-                                    </div>
-                                  </li>
-                                )
-                              })}
-                            </ul>
-                          </ScrollArea>
+                          </FadeIn>
+                          
+                          {/* Skill Cards */}
+                          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto px-2 sm:px-4">
+                            <FadeIn delay={0}>
+                            <div className="bg-black/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-white/10 hover:border-accent/50 transition-all duration-300">
+                                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                                    {skills.skillCategories[0].icon}
+                                </div>
+                                <h4 className="text-lg sm:text-xl font-bold text-white">{skills.skillCategories[0].title}</h4>
+                                </div>
+                                <ul className="space-y-1 sm:space-y-2">
+                                {skills.skillCategories[0].items.map((item, idx) => (
+                                    <li key={idx} className="text-white/70 text-sm sm:text-base">
+                                        • {item}
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                            </FadeIn>
+                            <FadeIn delay={0.1}>
+                            <div className="bg-black/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-white/10 hover:border-accent/50 transition-all duration-300">
+                                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                                    {skills.skillCategories[1].icon}
+                                </div>
+                                <h4 className="text-lg sm:text-xl font-bold text-white">{skills.skillCategories[1].title}</h4>
+                                </div>
+                                <ul className="space-y-1 sm:space-y-2">
+                                {skills.skillCategories[1].items.map((item, idx) => (
+                                    <li key={idx} className="text-white/70 text-sm sm:text-base">
+                                        • {item}
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                            </FadeIn>
+                            <FadeIn delay={0.2}>
+                            <div className="bg-black/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-white/10 hover:border-accent/50 transition-all duration-300">
+                                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                                    {skills.skillCategories[2].icon}
+                                </div>
+                                <h4 className="text-lg sm:text-xl font-bold text-white">{skills.skillCategories[2].title}</h4>
+                                </div>
+                                <ul className="space-y-1 sm:space-y-2">
+                                {skills.skillCategories[2].items.map((item, idx) => (
+                                    <li key={idx} className="text-white/70 text-sm sm:text-base">
+                                        • {item}
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                            </FadeIn>
+                          </div>
                         </div>
                       </TabsContent>
                     </div>
 
                 </Tabs>
+                </FadeIn>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

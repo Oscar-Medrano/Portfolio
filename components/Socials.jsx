@@ -7,7 +7,6 @@ const socials = [
     {icon:<FaGithub />, path: "https://github.com/Oscar-Medrano"},
     {icon:<FaLinkedinIn />, path: "https://www.linkedin.com/in/oscar-medrano-y"},
     {icon:<FaWhatsapp />, path: "https://wa.me/584120819925"},
-    {icon:<ImTelegram />, path: "https://t.me/@OscarAMedrano"},
 ];
 
 const Socials = ( {containerStyles, iconStyles} ) => {

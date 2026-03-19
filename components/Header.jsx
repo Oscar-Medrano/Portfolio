@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "./ui/button"; 
 import Image from 'next/image';
 import logo from '../public/logo.svg';
 
@@ -17,9 +16,10 @@ const Header = () => {
             <Link href='/'>
                 <Image
                 src={logo}
-                alt="My Logo" // Add a descriptive alt text for accessibility
-                width={80} // Adjust width as needed
-                height={40} // Adjust height as needed
+                alt="My Logo"
+                width={80}
+                height={40}
+                priority
                 />
             </Link>
 
