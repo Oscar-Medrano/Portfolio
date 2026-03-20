@@ -37,7 +37,7 @@ const about = {
         {
             icon: <BsGlobe className="text-xl text-accent" />,
             fieldName: 'Languages',
-            fieldValue: 'Spanish: Native | English: B2'
+            fieldValue: 'Spanish: Native | English: C1'
         },
     ]
 }

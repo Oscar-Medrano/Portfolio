@@ -10,6 +10,9 @@ const links = [
     {   name: "summary",
         path: "/summary"
     },
+    {   name: "certificates",
+        path: "/certificates"
+    },
     {   name: "work",
         path: "/work"
     },

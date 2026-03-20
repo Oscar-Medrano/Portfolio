@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 const links = [
   { name: "home", path: "/" },
   { name: "summary", path: "/summary" },
+  { name: "certificates", path: "/certificates" },
   { name: "work", path: "/work" },
 ];
 
