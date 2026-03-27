@@ -37,3 +37,31 @@
     }
   }
 }
+
+/* Thumbnails mobile layout: 2 arriba, 3 abajo - CSS Grid con 6 columnas */
+@media (max-width: 640px) {
+  .thumbnails-mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Las primeras 2 imágenes: ocupan 3 columnas cada una (50% del total) */
+  .thumbnails-mobile-grid > *:nth-child(-n+2) {
+    grid-column: span 3;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Las siguientes 3 imágenes: ocupan 2 columnas cada una (33.33% del total) */
+  .thumbnails-mobile-grid > *:nth-child(n+3) {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 8px;
+  }
+}

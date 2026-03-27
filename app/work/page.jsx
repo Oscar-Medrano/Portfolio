@@ -57,11 +57,11 @@ const Work = () => {
               </div>
               
               {/* Thumbnails */}
-              <div className="flex gap-2 sm:gap-3 mt-6 sm:mt-8 overflow-x-auto pb-2 justify-center px-2">
+              <div className="thumbnails-mobile-grid sm:flex sm:gap-3 mt-6 sm:mt-8 sm:justify-center px-2">
                 {projectImages.map((img, index) => (
                   <div
                     key={index}
-                    className={`relative w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 lg:w-28 lg:h-20 flex-shrink-0 ${
+                    className={`relative h-20 sm:w-20 sm:h-14 md:w-24 md:h-16 lg:w-28 lg:h-20 ${
                       currentImage === index
                         ? "border-2 border-cyan-400 rounded-lg"
                         : "opacity-60 hover:opacity-100 rounded-lg"
@@ -77,7 +77,7 @@ const Work = () => {
                           alt={`Thumbnail ${index + 1}`}
                           fill
                           className="object-cover hover:scale-110 transition-transform duration-300"
-                          sizes="(max-width: 640px) 20vw, (max-width: 768px) 25vw, 150px"
+                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 150px"
                         />
                       </button>
                     </div>
@@ -119,12 +119,12 @@ const Work = () => {
               </ul>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full">
                 <a
                   href="https://github.com/Oscar-Medrano/Frontend-Consultorio-Medrano"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 bg-accent text-black font-semibold rounded-lg hover:bg-accent-hover transition-colors duration-300"
+                  className="flex items-center justify-center gap-2 px-5 py-3 bg-accent text-black font-semibold rounded-lg hover:bg-accent-hover transition-colors duration-300 w-full sm:w-auto"
                 >
                   <SiGithub className="text-xl" />
                   <span>View Code</span>
@@ -133,7 +133,7 @@ const Work = () => {
                   href="https://doctor-oscar-medrano.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 border border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-black transition-colors duration-300"
+                  className="flex items-center justify-center gap-2 px-5 py-3 border border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-black transition-colors duration-300 w-full sm:w-auto"
                 >
                   <BsArrowUpRight className="text-xl" />
                   <span>Visit Page</span>
